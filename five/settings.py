@@ -37,6 +37,12 @@ INSTALLED_APPS = [
     'base',
     'search',
 
+    # Installed Plugins
+    'wagtail_react_streamfield',
+    'wagtailfontawesome',
+    'wagtail.contrib.modeladmin',
+    'wagtailmenus',
+
     # Wagtail Defaults
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
@@ -49,11 +55,8 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-    'wagtailfontawesome',
     'modelcluster',
     'taggit',
-    'wagtail.contrib.modeladmin',
-    'wagtailmenus',
 
     # Django Defaults
     'django.contrib.admin',
@@ -84,7 +87,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(PROJECT_DIR, 'five/templates'),
+            os.path.join(PROJECT_DIR, 'templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -155,11 +158,9 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.2/howto/static-files/
-
-STATIC_URL = '/static/'
-
+STATICFILES_DIRS = [
+    os.path.join(PROJECT_DIR, "static"),
+]
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info

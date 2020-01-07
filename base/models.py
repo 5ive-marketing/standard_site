@@ -22,10 +22,12 @@ class FooterText(models.Model):
     accessible on the template via a template tag defined in base/templatetags/
     navigation_tags.py
     """
-    body = RichTextField()
+    text = StreamField([
+        ('html', RawHTMLBlock(),),
+    ], verbose_name="Add Snippet", null=True)
 
     panels = [
-        FieldPanel('body'),
+        StreamFieldPanel('text'),
     ]
 
     def __str__(self):

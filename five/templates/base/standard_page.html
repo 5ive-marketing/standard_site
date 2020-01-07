@@ -1,9 +1,0 @@
-{% extends 'base.html' %} {% block content %}
-<section class="container">
-  {% for block in page.body %}
-  {{ block }}
-  {% endfor %}
-
-  {{ page.rawhtml.text }}
-</section>
-{% endblock content %}

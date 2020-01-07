@@ -4,6 +4,8 @@ from wagtail.core.blocks import (
     CharBlock, ChoiceBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock
 )
 
+from django.db import models
+
 
 class ImageBlock(StructBlock):
     """
@@ -19,6 +21,18 @@ class ImageBlock(StructBlock):
         template = "blocks/image_block.html"
 
 
+class BannerBlock(StructBlock):
+    """
+    Custom `StructBlock` for utilizing images with associated caption and
+    attribution data
+    """
+    image = ImageChooserBlock(required=True)
+
+    class Meta:
+        icon = 'image'
+        template = "blocks/banner_block.html"
+
+
 class HeadingBlock(StructBlock):
     """
     Custom `StructBlock` that allows the user to select h2 - h4 sizes for headers
@@ -26,9 +40,12 @@ class HeadingBlock(StructBlock):
     heading_text = CharBlock(classname="title", required=True)
     size = ChoiceBlock(choices=[
         ('', 'Select a header size'),
+        ('h1', 'H1'),
         ('h2', 'H2'),
         ('h3', 'H3'),
-        ('h4', 'H4')
+        ('h4', 'H4'),
+        ('h5', 'H5'),
+        ('h6', 'H6')
     ], blank=True, required=False)
 
     class Meta:
@@ -40,6 +57,12 @@ class BlockQuote(StructBlock):
     """
     Custom `StructBlock` that allows the user to attribute a quote to the author
     """
+    size = ChoiceBlock(choices=[
+        ('', 'Select a blockquote size'),
+        ('short', 'Short'),
+        ('long', 'Long'),
+    ], blank=True, required=False)
+
     text = TextBlock()
     attribute_name = CharBlock(
         blank=True, required=False, label='e.g. Mary Berry')
@@ -64,7 +87,7 @@ class CarouselBlock(StructBlock):
     video = EmbedBlock()
 
     class Meta:
-        icon = "fa-image"
+        icon = "fa-images"
         template = "blocks/carousel_block.html"
 
 
@@ -90,6 +113,7 @@ class ColumnBlock(StreamBlock):
     )
     carousel_block = Carousel()
     image_block = ImageBlock()
+    banner_block = BannerBlock()
     block_quote = BlockQuote()
     embed_block = EmbedBlock(
         help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks',
@@ -97,8 +121,8 @@ class ColumnBlock(StreamBlock):
         template="blocks/embed_block.html")
 
     class Meta:
-        icon = "fa-images"
-        # template = "blocks/column.html"
+        icon = "fa-columns"
+        template = "blocks/column.html"
 
 
 class RowBlock(StreamBlock):
@@ -108,7 +132,7 @@ class RowBlock(StreamBlock):
     column = ColumnBlock()
 
     class Meta:
-        icon = "fa-images"
+        icon = "fa-align-justify"
         template = "blocks/row.html"
 
 
@@ -117,7 +141,7 @@ class BaseStreamBlock(StreamBlock):
     """
     Define the blocks that all web pages will utilize
     """
+    title = models.CharField(max_length=255,
+                             null=True,
+                             blank=True,)
     rows = RowBlock()
-
-    class Meta:
-        icon = 'fa-stream'

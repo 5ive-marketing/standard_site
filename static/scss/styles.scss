@@ -1,0 +1,23 @@
+/// NOTE:: Site specific css for styles related directly to the new site.
+
+//
+// Imports
+@import 'core';
+
+//
+// Menu
+nav {
+    background: $cp5;
+}
+
+.logo-container {
+    padding: 30px 15px;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+
+//
+//  Mobile First Development
+@import 'tablet';
+@import 'desktop';

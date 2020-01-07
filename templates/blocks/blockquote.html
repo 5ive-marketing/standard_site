@@ -1,0 +1,27 @@
+{% load wagtailimages_tags %}
+
+{% if self.size == 'short' %}
+<blockquote class="short">
+    <p class="text">{{ self.text }}</p>
+    <section class="author">
+        <p class="attribute_name">{{ self.attribute_name}}</p>
+    </section>
+</blockquote>
+
+{% elif self.size == 'long' %}
+<blockquote class="long">
+    <p class="text">{{ self.text }}</p>
+    <section class="author">
+        <p class="attribute_name">{{ self.attribute_name}}</p>
+    </section>
+</blockquote>
+
+{% else %}
+<blockquote>
+    <p class="text">{{ self.text }}</p>
+    <section class="author">
+        <p class="attribute_name">{{ self.attribute_name}}</p>
+    </section>
+</blockquote>
+
+{% endif %}

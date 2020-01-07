@@ -1,0 +1,565 @@
+// NOTE:: This is the core HTML styles that can be found on the Style Guide Page of the site.
+
+/*=======================
+       Imports
+========================*/
+@import "mixins";
+@import "defaults";
+
+//
+// Core HTML
+*,
+*:after,
+*:before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: $bodyCopy;
+  font-weight: 400;
+  color: $text-gray;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  margin-top: 0px;
+}
+
+// Headers
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $headline;
+  font-weight: 300;
+  margin: 0;
+  line-height: normal;
+}
+
+h1 {
+  @include font-size(42px);
+  line-height: 70px;
+  font-weight: 100;
+  color: $cp1;
+}
+
+h2 {
+  @include font-size(33px);
+  line-height: 57px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $cp4;
+}
+
+h3 {
+  @include font-size(26px);
+  line-height: 46px;
+  font-weight: 300;
+  color: $cp3;
+}
+
+h4 {
+  @include font-size(20px);
+  line-height: 38px;
+  font-weight: 300;
+  color: $cp5;
+}
+
+h5 {
+  @include font-size(16px);
+  line-height: 32px;
+  font-weight: 300;
+  color: $cp1;
+}
+
+h6 {
+  @include font-size(13px);
+  line-height: 27px;
+  text-transform: uppercase;
+  color: $cp4;
+  font-weight: 100;
+}
+
+img {
+  width: 100%;
+  height: auto;
+}
+
+//
+// Logo/Name
+.logo {
+  max-width: 200px;
+  display: block;
+}
+
+//
+// Menu
+.nav-item.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+
+//
+// Color Palette
+.palette {
+  float: left;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 20px !important;
+
+  ul {
+    clear: left;
+    float: left;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    left: 50%;
+    text-align: center;
+  }
+
+  li {
+    display: block;
+    float: left;
+    list-style: none;
+    position: relative;
+    right: 50%;
+    width: 150px;
+    height: 150px;
+    position: relative;
+    list-style: none;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
+    &:before {
+      display: none !important;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    p {
+      color: white;
+      position: absolute;
+      @include font-size(20px);
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .cp1 {
+    background-color: $cp1;
+  }
+
+  .cp2 {
+    background-color: $cp2;
+  }
+
+  .cp3 {
+    background-color: $cp3;
+  }
+
+  .cp4 {
+    background-color: $cp4;
+  }
+
+  .cp5 {
+    background-color: $cp5;
+  }
+}
+
+//
+// Paragraph Styles
+div,
+p {
+  color: $text-gray;
+  @include font-size(18px);
+  margin: 0 0 0.5em;
+  line-height: 34px;
+  font-weight: 400;
+  font-family: $bodyCopy;
+
+  &:last-child {
+    margin-bottom: 1em;
+  }
+}
+
+i,
+em {
+  font-style: italic;
+  font-weight: 300;
+}
+
+b,
+strong {
+  font-weight: 800;
+  color: $cp4;
+}
+
+a {
+  text-decoration: none;
+  @include transition(color 0.3s ease);
+  color: $text-gray;
+
+  &:hover {
+    color: $cp1;
+  }
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+blockquote.long {
+  border-top: 1px solid $light;
+  border-bottom: 1px solid $light;
+  margin: 40px 0 0 0;
+  padding: 20px 0;
+  position: relative;
+
+  &:before {
+    content: "“";
+    position: absolute;
+    position: absolute;
+    @include font-size(100px);
+    font-weight: 900;
+    font-family: $headline;
+    color: $light;
+    top: 0;
+    left: 50%;
+    transform: translate(-50%, -32px);
+    background: white;
+    padding: 10px;
+    height: 34px;
+    line-height: 84px;
+  }
+
+  * {
+    line-height: 32px;
+    font-style: italic;
+  }
+
+  .author p {
+    margin: 0;
+    color: $cp5;
+    text-align: right;
+
+    &:before {
+      content: "\2014"+ " ";
+
+    }
+  }
+
+}
+
+blockquote.short {
+  background: $cp2;
+  margin: 40px 0 0 0;
+  padding: 20px;
+  position: relative;
+
+  * {
+    @extend h2;
+    @include font-size(42px);
+    line-height: 70px;
+    color: white;
+    margin: 0;
+    padding: 0;
+  }
+
+  .author p {
+    margin: 0;
+    text-align: right;
+    font-family: $bodyCopy;
+    @include font-size(13px);
+    line-height: 27px;
+
+    &:before {
+      content: "\2014"+ " ";
+
+    }
+  }
+
+}
+
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+.rounded {
+  @include border-radius(100%);
+}
+
+.footnote,
+.footnote * {
+  @include font-size(16px);
+  font-weight: 400;
+  font-style: italic;
+  margin-bottom: 0;
+}
+
+
+button,
+.button,
+.btn-primary,
+.btn,
+.btn-info,
+.btn-default {
+  display: inline-block;
+  padding: 12px 35px !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: white !important;
+  font-family: $bodyCopy;
+  text-transform: uppercase;
+  @include font-size(18px);
+  font-weight: 100;
+  background: $cp3;
+  transition: all 0.5s ease;
+  border: none !important;
+  @include border-radius(0);
+
+  &:hover,
+  &.hover {
+    color: white !important;
+    background: $cp5;
+    @include border-radius($radius);
+  }
+
+  &:active,
+  &.active {
+    color: white !important;
+    background: $cp2;
+    @include border-radius($radius);
+  }
+}
+
+//
+// Lists
+////// Ordered List (Numbered)
+main ol {
+  list-style-type: none;
+  margin: 0;
+  margin-left: 0;
+  padding: 0;
+  counter-reset: li-counter;
+}
+
+main ol>li {
+  position: relative;
+  margin-bottom: 0;
+  padding: 5px 20px 5px 65px;
+  border-bottom: 1px solid $cp5;
+  border-left: 1px solid $cp5;
+
+  &:first-of-type {
+    border-top: 1px solid $cp5;
+  }
+}
+
+main ol>li:before {
+  position: absolute;
+  color: white;
+  top: 0;
+  left: 0;
+  text-align: center;
+  font-weight: 400;
+  font-family: $bodyCopy;
+  content: counter(li-counter);
+  counter-increment: li-counter;
+  background: $cp3;
+  height: 100%;
+  width: 50px;
+  padding-top: 10px;
+  line-height: 1.3em;
+  @include font-size(20px);
+}
+
+////// Unordered list (Bullets)
+main ul {
+  margin: 0;
+  padding: 0;
+
+  li {
+    margin-bottom: 15px;
+    padding-left: 25px;
+    position: relative;
+    list-style-type: none;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 6px;
+      left: 0;
+      background: $cp3;
+      border-radius: $full-radius;
+      height: 15px;
+      width: 15px;
+    }
+  }
+}
+
+//
+// Tables
+@media (max-width: 768px) {
+  table {
+    margin-bottom: 20px;
+  }
+
+  thead {
+    display: none;
+  }
+
+  tr {
+    display: block;
+    position: relative;
+    padding: 1.2em 0;
+
+    &:first-of-type {
+      border-top: 1px solid #ccc;
+    }
+  }
+
+  td {
+    display: block;
+
+    &:last-child:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    &:not(:first-child)::before {
+      content: attr(data-label) " ";
+      font-weight: bold;
+      color: $cp3;
+    }
+
+    &[data-label=":"]::before {
+      content: none;
+    }
+
+    &[data-label="PERCENT OF CLASS:"] {
+      text-align: left;
+      background: $cp2;
+      color: white;
+      padding: 13px !important;
+    }
+  }
+
+  tr {
+    padding: 0;
+  }
+
+  td,
+  th {
+    padding: 0.4em 0.6em;
+    vertical-align: top;
+    border: 1px solid #ccc;
+  }
+
+  th {
+    background: #e1e1e1;
+    font-weight: bold;
+  }
+
+  .table>thead>tr>th,
+  .table>tbody>tr>th,
+  .table>tfoot>tr>th,
+  .table>thead>tr>td,
+  .table>tbody>tr>td,
+  .table>tfoot>tr>td {
+    border: none;
+  }
+}
+
+.table-responsive>.table {
+  margin-bottom: 20px !important;
+  border: none;
+}
+
+.table-responsive {
+  border: none;
+}
+
+table {
+  border: 0;
+  width: 100%;
+  margin-bottom: 20px;
+
+  overflow: hidden;
+}
+
+table caption {
+  padding: 15px;
+  background: $cp2;
+  color: white;
+}
+
+th {
+  padding: 10px 15px;
+  background: $cp4;
+  text-transform: uppercase;
+  color: white;
+  font-weight: 500;
+}
+
+tr:hover {
+  background: lighten($odd, 20%);
+}
+
+tr:nth-child(even) {
+  background: $even;
+}
+
+tr:nth-child(odd) {
+  background: $odd;
+}
+
+td {
+  padding: 5px 15px;
+}
+
+//
+// Footer
+footer {
+  min-height: 100px;
+  padding: 20px 20px 50px;
+  background: $footer;
+  min-height: 100px;
+  box-shadow: 0 500px 0 500px $footer;
+
+  * {
+    color: white;
+  }
+
+  a {
+    color: $cp3;
+
+    &:hover {
+      color: darken($cp3, 10%);
+    }
+  }
+}
