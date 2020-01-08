@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'wagtailfontawesome',
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
+    'colorful',
 
     # Wagtail Defaults
     'wagtail.contrib.forms',

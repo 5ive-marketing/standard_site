@@ -2,13 +2,15 @@
 
 
 
-<section class="background" style="background-image: url('/media/original_images/{{ value.background }}">
+{# check padding value and assign new class #}
+<section
+    class="{% if self.background %}background{% endif %}{% if self.padding == 'small' %}small-padding {% elif self.padding == 'medium' %} medium-padding {% elif self.padding == 'large' %} large-padding {% endif %}"
+    {% if self.background %} style="background-image: url('/media/original_images/{{ value.background }}" {% endif %}>
     <section class="container">
         <section class="row">
+            {# itterate through each column block #}
             {% for block in value.content %}
-            <div class="col-md">
-                {{ block }}
-            </div>
+            {{ block }}
             {% endfor %}
         </section>
     </section>

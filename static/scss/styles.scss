@@ -12,7 +12,7 @@
 }
 
 nav {
-    background: $cp5;
+    background: $cp1;
 }
 
 .navbar {
@@ -36,9 +36,61 @@ nav {
     border-radius: 0;
 
     a {
-        background: $cp3;
+        background: $cp5;
         padding: 10px 12px;
         display: block;
+        color: white;
+
+        &:hover {
+            background: darken($cp5, 10%);
+        }
+    }
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+    background: none;
+}
+
+a.nav-link {
+    color: $cp5;
+
+    &:hover {
+        color: $cp3;
+    }
+}
+
+.active {
+    background: $cp5;
+
+    a.nav-link {
+        color: white;
+    }
+}
+
+//
+// Content
+.small-padding {
+    padding: 50px 0;
+}
+
+.medium-padding {
+    padding: 100px 0;
+}
+
+.large-padding {
+    padding: 150px 0;
+}
+
+.background {
+    background-color: $dark;
+
+    * {
+        color: white;
+    }
+
+    img {
+        filter: brightness(0) invert(1);
     }
 }
 

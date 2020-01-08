@@ -1,7 +1,7 @@
 from wagtail.images.blocks import ImageChooserBlock
 from wagtail.embeds.blocks import EmbedBlock
 from wagtail.core.blocks import (
-    CharBlock, ChoiceBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock
+    CharBlock, ChoiceBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock, IntegerBlock
 )
 
 from colorful.fields import RGBColorField
@@ -104,23 +104,34 @@ class Carousel(StreamBlock):
         template = "blocks/carousel.html"
 
 
-class ColumnBlock(StreamBlock):
+class ColumnBlock(StructBlock):
     """
     Define the blocks that all columns will utilize
     """
-    heading_block = HeadingBlock()
-    paragraph_block = RichTextBlock(
-        icon="fa-paragraph",
-        template="blocks/paragraph_block.html"
+    width = IntegerBlock(
+        max_value=12,
+        min_value=1,
+        default=12,
+        blank=True,
+        required=False,
+        help_text="Select the width of the column, max of 12."
     )
-    carousel_block = Carousel()
-    image_block = ImageBlock()
-    banner_block = BannerBlock()
-    block_quote = BlockQuote()
-    embed_block = EmbedBlock(
-        help_text='Insert an embed URL e.g https://www.youtube.com/embed/SGJFWirQ3ks',
-        icon="fa-s15",
-        template="blocks/embed_block.html")
+
+    content = StreamBlock(
+        [
+            ('heading', HeadingBlock()),
+            ('paragraph', RichTextBlock(
+                icon="fa-paragraph",
+                template="blocks/paragraph_block.html"
+            )),
+            ('carousel', Carousel()),
+            ('image', ImageBlock()),
+            ('banner', BannerBlock()),
+            ('quote', BlockQuote()),
+            ('heading', HeadingBlock()),
+        ],
+        help_text="Add content to column."
+    )
 
     class Meta:
         icon = "fa-columns"
@@ -139,6 +150,14 @@ class RowBlock(StructBlock):
     color = RGBColorField(
         colors=['#231F20', '#3A506B', '#77C7C6', '#B71219', '#4D9B59']
     )
+
+    padding = ChoiceBlock(choices=[
+        ('', 'Select a padding size'),
+        ('none', 'None'),
+        ('small', 'Small'),
+        ('medium', 'Medium'),
+        ('large', 'Large'),
+    ], blank=True, required=False, help_text="Select how much top and bottom padding you would like on the row.")
 
     content = StreamBlock(
         [

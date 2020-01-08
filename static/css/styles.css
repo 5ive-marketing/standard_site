@@ -556,7 +556,7 @@ footer a:hover {
 }
 
 nav {
-  background: #4D9B59;
+  background: #231F20;
 }
 
 .navbar {
@@ -580,9 +580,54 @@ nav {
   border-radius: 0;
 }
 .navbar-expand-md .navbar-nav .dropdown-menu a {
-  background: #77C7C6;
+  background: #4D9B59;
   padding: 10px 12px;
   display: block;
+  color: white;
+}
+.navbar-expand-md .navbar-nav .dropdown-menu a:hover {
+  background: #3c7945;
+}
+
+.dropdown-item:focus,
+.dropdown-item:hover {
+  background: none;
+}
+
+a.nav-link {
+  color: #4D9B59;
+}
+a.nav-link:hover {
+  color: #77C7C6;
+}
+
+.active {
+  background: #4D9B59;
+}
+.active a.nav-link {
+  color: white;
+}
+
+.small-padding {
+  padding: 50px 0;
+}
+
+.medium-padding {
+  padding: 100px 0;
+}
+
+.large-padding {
+  padding: 150px 0;
+}
+
+.background {
+  background-color: #292929;
+}
+.background * {
+  color: white;
+}
+.background img {
+  filter: brightness(0) invert(1);
 }
 
 .logo-container {
