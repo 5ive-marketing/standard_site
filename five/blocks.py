@@ -4,6 +4,8 @@ from wagtail.core.blocks import (
     CharBlock, ChoiceBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock
 )
 
+from colorful.fields import RGBColorField
+
 from django.db import models
 
 
@@ -125,11 +127,25 @@ class ColumnBlock(StreamBlock):
         template = "blocks/column.html"
 
 
-class RowBlock(StreamBlock):
+class RowBlock(StructBlock):
     """
     Define the blocks that all rows will utilize
     """
-    column = ColumnBlock()
+
+    background = ImageChooserBlock(
+        required=False,
+        help_text="This will set the background image of the row."
+    )
+    color = RGBColorField(
+        colors=['#231F20', '#3A506B', '#77C7C6', '#B71219', '#4D9B59']
+    )
+
+    content = StreamBlock(
+        [
+            ('column', ColumnBlock()),
+        ],
+        help_text="Add column to row."
+    )
 
     class Meta:
         icon = "fa-align-justify"

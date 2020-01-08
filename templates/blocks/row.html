@@ -1,9 +1,15 @@
 {% load wagtailcore_tags %}
 
-<section class="row">
-{% for block in value %}
-    <div class="col-md">
-        {{ block }}
-    </div>
-{% endfor %}
+
+
+<section class="background" style="background-image: url('/media/original_images/{{ value.background }}">
+    <section class="container">
+        <section class="row">
+            {% for block in value.content %}
+            <div class="col-md">
+                {{ block }}
+            </div>
+            {% endfor %}
+        </section>
+    </section>
 </section>

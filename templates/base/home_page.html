@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% load wagtailcore_tags snippet_tags %}
 {% block content %}
-<section class="container">
-    {% for block in page.body %}
-    {{ block }}
-    {% endfor %}
 
-    {{ page.rawhtml.text }}
-</section>
+
+{% for block in page.body %}
+{{ block }}
+{% endfor %}
+
+{{ page.rawhtml.text }}
+
 {% endblock content %}

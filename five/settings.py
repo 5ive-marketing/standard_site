@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x7qxx3vr07d4ujcj36$ue*1q9^&6l5d%bn%9rvdofw71)%bjfu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     'localhost:8000',
@@ -161,7 +161,15 @@ STATICFILES_FINDERS = [
 
 # default static files settings for PythonAnywhere.
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
-MEDIA_ROOT = u'/home/Caecus/five/media'
+if DEBUG:
+    STATICFILES_DIRS = [
+        os.path.join(PROJECT_DIR, "static"),
+    ]
+    MEDIA_ROOT = '../five/media/'
+
+else:
+    MEDIA_ROOT = u'/home/Caecus/five/media'
+
 MEDIA_URL = '/media/'
 STATIC_ROOT = u'/home/Caecus/five/static'
 STATIC_URL = '/static/'

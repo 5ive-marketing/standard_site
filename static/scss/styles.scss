@@ -6,15 +6,50 @@
 
 //
 // Menu
+.dropdown:hover .dropdown-menu,
+.navbar-expand-md .navbar-nav .nav-link {
+    display: block;
+}
+
 nav {
     background: $cp5;
 }
 
+.navbar {
+    padding: 0;
+}
+
+.navbar-expand-md .navbar-nav .nav-link {
+    padding: 14px 12px;
+}
+
+.dropdown-item {
+    padding: 0;
+}
+
+.navbar-expand-md .navbar-nav .dropdown-menu {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: 0;
+
+    a {
+        background: $cp3;
+        padding: 10px 12px;
+        display: block;
+    }
+}
+
+//
+// Logo
 .logo-container {
     padding: 30px 15px;
     max-width: 1140px;
     margin: 0 auto;
 }
+
 
 
 //
