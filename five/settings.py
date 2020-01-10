@@ -22,13 +22,20 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'x7qxx3vr07d4ujcj36$ue*1q9^&6l5d%bn%9rvdofw71)%bjfu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost:8000',
     'localhost',
     u'Caecus.pythonanywhere.com'
 ]
+
+INTERNAL_IPS = (
+    "127.0.0.1",
+    "172.17.0.1",
+    'localhost:8000',
+    'localhost',
+)
 
 # Application definition
 
@@ -43,6 +50,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
     'colorful',
+    'debug_toolbar',
 
     # Wagtail Defaults
     'wagtail.contrib.forms',
@@ -77,9 +85,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    # Wagtain Defaults
+    # Wagtail Defaults
     'wagtail.core.middleware.SiteMiddleware',
     'wagtail.contrib.redirects.middleware.RedirectMiddleware',
+    # Module addons
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'five.urls'

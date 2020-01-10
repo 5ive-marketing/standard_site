@@ -43,14 +43,14 @@ h6 {
 }
 
 h1 {
-  @include font-size(42px);
+  @include font-size(72px);
   line-height: 70px;
   font-weight: 100;
   color: $cp1;
 }
 
 h2 {
-  @include font-size(33px);
+  @include font-size(43px);
   line-height: 57px;
   font-weight: 900;
   text-transform: uppercase;
@@ -86,13 +86,24 @@ h6 {
   font-weight: 100;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
+
 
 .background {
   background-size: cover;
+}
+
+.hidden {
+  display: none;
+}
+
+hr {
+  border-color: $cp4;
+  padding: 0;
+  margin: 20px 0 40px;
+}
+
+[class^="fa-"] {
+  font-family: fontawesome;
 }
 
 //
@@ -210,9 +221,10 @@ a {
   text-decoration: none;
   @include transition(color 0.3s ease);
   color: $text-gray;
+  display: inline-block;
 
   &:hover {
-    color: $cp1;
+    color: $cp5;
   }
 }
 
@@ -293,11 +305,11 @@ blockquote.short {
 
 }
 
-
 img {
   max-width: 100%;
   height: auto;
 }
+
 
 .hidden {
   display: none;
@@ -539,6 +551,32 @@ tr:nth-child(odd) {
 td {
   padding: 5px 15px;
 }
+
+//
+// Forms
+.form-group {
+  .form-control {
+    border-radius: 0;
+    border-color: $cp5;
+  }
+}
+
+select.form-control {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 0;
+
+}
+
+::-webkit-input-placeholder,
+::-moz-placeholder,
+:-ms-input-placeholder,
+:-moz-placeholder,
+::placeholder {
+  /* Chrome/Opera/Safari */
+  color: pink;
+}
+
 
 //
 // Footer

@@ -1,6 +1,7 @@
 from django.conf.urls import include, url
 from django.conf import settings
 from django.contrib import admin
+from django.urls import path
 
 from wagtail.admin import urls as wagtailadmin_urls
 from wagtail.documents import urls as wagtaildocs_urls
@@ -44,6 +45,11 @@ if settings.DEBUG:
         url(r'^test404/$', TemplateView.as_view(template_name='404.html')),
         url(r'^test500/$', TemplateView.as_view(template_name='500.html')),
     ]
+
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
 
 urlpatterns += [
     url(r'', include(wagtail_urls)),

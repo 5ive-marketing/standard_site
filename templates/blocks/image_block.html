@@ -1,6 +1,6 @@
 {% load wagtailimages_tags %}
 {% load wagtailcore_tags %}
-<figure>
+<figure {%if self.position%}class="{{ self.position }}" {%endif%}>
     {% image self.image max-700x500 %}
     {%if self.caption and self.attribution %}<figcaption>{{ self.caption }} {{ self.attribution }}</figcaption>
     {%elif self.caption %}<figcaption>{{ self.caption }}</figcaption>

@@ -2,9 +2,19 @@
 {% load wagtailcore_tags snippet_tags %}
 {% block content %}
 
+<button class="hamburger hamburger--emphatic" type="button">
+    <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+    </span>
+</button>
 
 {% for block in page.body %}
-{{ block }}
+<section class="container">
+    <section
+        class="row {% if block.value.padding == 'small' %}small-padding {% elif block.value.padding == 'medium' %} medium-padding {% elif block.value.padding == 'large' %} large-padding {% endif %}">
+        {% include_block block %}
+    </section>
+</section>
 {% endfor %}
 
 {{ page.rawhtml.text }}

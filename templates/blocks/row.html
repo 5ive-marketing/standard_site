@@ -1,17 +1,8 @@
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags%}
 
+{% image value.background original as background %}
 
-
-{# check padding value and assign new class #}
-<section
-    class="{% if self.background %}background{% endif %}{% if self.padding == 'small' %}small-padding {% elif self.padding == 'medium' %} medium-padding {% elif self.padding == 'large' %} large-padding {% endif %}"
-    {% if self.background %} style="background-image: url('/media/original_images/{{ value.background }}" {% endif %}>
-    <section class="container">
-        <section class="row">
-            {# itterate through each column block #}
-            {% for block in value.content %}
-            {{ block }}
-            {% endfor %}
-        </section>
-    </section>
-</section>
+{# itterate through each column block #}
+{% for block in value.content %}
+{% include_block block %}
+{% endfor %}

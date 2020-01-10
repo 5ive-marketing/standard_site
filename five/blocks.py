@@ -4,6 +4,8 @@ from wagtail.core.blocks import (
     CharBlock, ChoiceBlock, RichTextBlock, StreamBlock, StructBlock, TextBlock, IntegerBlock
 )
 
+from wagtail.snippets.blocks import SnippetChooserBlock
+
 from colorful.fields import RGBColorField
 
 from django.db import models
@@ -15,6 +17,16 @@ class ImageBlock(StructBlock):
     attribution data
     """
     image = ImageChooserBlock(required=True)
+    position = ChoiceBlock(
+        choices=[
+            ('', '- Change Alignment -'),
+            ('left', 'Left'),
+            ('right', 'Right'),
+            ('center', 'Center'),
+        ],
+        required=False,
+        blank=True
+    )
     caption = CharBlock(required=False)
     attribution = CharBlock(required=False)
 
@@ -108,13 +120,33 @@ class ColumnBlock(StructBlock):
     """
     Define the blocks that all columns will utilize
     """
+    background = ImageChooserBlock(
+        required=False,
+        help_text="This will set the background image of the row.",
+        group="Container"
+    )
     width = IntegerBlock(
         max_value=12,
         min_value=1,
         default=12,
         blank=True,
         required=False,
-        help_text="Select the width of the column, max of 12."
+        help_text="Select the width of the column, max of 12.",
+        group="Container"
+    )
+
+    padding = ChoiceBlock(
+        choices=[
+            ('', 'Select a padding size'),
+            ('none', 'None'),
+            ('small', 'Small'),
+            ('medium', 'Medium'),
+            ('large', 'Large'),
+        ],
+        blank=True,
+        required=False,
+        help_text="Select how much top and bottom padding you would like on the row.",
+        group="Container"
     )
 
     content = StreamBlock(
@@ -136,6 +168,7 @@ class ColumnBlock(StructBlock):
     class Meta:
         icon = "fa-columns"
         template = "blocks/column.html"
+        closed = True
 
 
 class RowBlock(StructBlock):
@@ -145,19 +178,26 @@ class RowBlock(StructBlock):
 
     background = ImageChooserBlock(
         required=False,
-        help_text="This will set the background image of the row."
+        help_text="This will set the background image of the row.",
+        group="Container"
     )
     color = RGBColorField(
         colors=['#231F20', '#3A506B', '#77C7C6', '#B71219', '#4D9B59']
     )
 
-    padding = ChoiceBlock(choices=[
-        ('', 'Select a padding size'),
-        ('none', 'None'),
-        ('small', 'Small'),
-        ('medium', 'Medium'),
-        ('large', 'Large'),
-    ], blank=True, required=False, help_text="Select how much top and bottom padding you would like on the row.")
+    padding = ChoiceBlock(
+        choices=[
+            ('', 'Select a padding size'),
+            ('none', 'None'),
+            ('small', 'Small'),
+            ('medium', 'Medium'),
+            ('large', 'Large'),
+        ],
+        blank=True,
+        required=False,
+        help_text="Select how much top and bottom padding you would like on the row.",
+        group="Container"
+    )
 
     content = StreamBlock(
         [
@@ -169,6 +209,7 @@ class RowBlock(StructBlock):
     class Meta:
         icon = "fa-align-justify"
         template = "blocks/row.html"
+        closed = True
 
 
 # StreamBlocks
