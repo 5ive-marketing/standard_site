@@ -602,7 +602,7 @@ footer a:hover {
 
 header {
   display: block;
-  height: 700px;
+  height: 480px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -623,6 +623,7 @@ header .hamburger.is-active {
   background: url("/static/img/cartographer.png");
   height: 100%;
   position: relative;
+  display: none;
 }
 
 .info {
@@ -795,9 +796,6 @@ a.nav-link:hover {
 
 .bar-header {
   margin-bottom: 30px;
-  position: sticky;
-  top: 0;
-  z-index: 3;
 }
 .bar-header .bar {
   padding-top: 5px;
@@ -805,6 +803,7 @@ a.nav-link:hover {
 }
 .bar-header .hamburger {
   right: 35px;
+  top: 3px;
 }
 .bar-header .info,
 .bar-header .menu-container {
@@ -816,10 +815,13 @@ a.nav-link:hover {
   margin: 0;
   height: auto;
 }
+.bar-header .contact-container {
+  display: block;
+}
 .bar-header .phone {
   float: left;
   position: relative;
-  top: 20px;
+  top: 0;
   margin-left: 20px;
   font-size: 30px;
   font-size: 1.875rem;
@@ -841,18 +843,18 @@ a.nav-link:hover {
 }
 
 .small-padding {
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
 
 .medium-padding {
-  padding-top: 100px;
-  padding-bottom: 100px;
+  padding-top: 40px;
+  padding-bottom: 40px;
 }
 
 .large-padding {
-  padding-top: 159px;
-  padding-bottom: 159px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 
 .background,
@@ -865,12 +867,55 @@ a.nav-link:hover {
 }
 
 .column-background.col-md-6 {
-  padding-left: 100px;
-  padding-right: 100px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 [class^=col-] {
   margin-bottom: 0 !important;
+}
+
+@media (min-width: 768px) {
+  header {
+    height: 700px;
+  }
+
+  .small-padding {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  .medium-padding {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  .large-padding {
+    padding-top: 159px;
+    padding-bottom: 159px;
+  }
+
+  .column-background.col-md-6 {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .bar-header {
+    margin-bottom: 30px;
+    position: sticky;
+    top: 0;
+    z-index: 3;
+  }
+  .bar-header .phone {
+    top: 20px;
+  }
+  .bar-header .hamburger {
+    top: 25px;
+  }
+
+  .contact-container {
+    display: block;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

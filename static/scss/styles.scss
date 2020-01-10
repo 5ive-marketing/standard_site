@@ -37,7 +37,7 @@
 
 header {
     display: block;
-    height: 700px;
+    height: 480px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,6 +59,7 @@ header {
     background: url("/static/img/cartographer.png");
     height: 100%;
     position: relative;
+    display: none;
 }
 
 .info {
@@ -256,9 +257,6 @@ a.nav-link {
 
 .bar-header {
     margin-bottom: 30px;
-    position: sticky;
-    top: 0;
-    z-index: 3;
 
 
     .bar {
@@ -268,6 +266,7 @@ a.nav-link {
 
     .hamburger {
         right: 35px;
+        top: 3px;
     }
 
     .info,
@@ -281,10 +280,14 @@ a.nav-link {
         height: auto;
     }
 
+    .contact-container {
+        display: block;
+    }
+
     .phone {
         float: left;
         position: relative;
-        top: 20px;
+        top: 0;
         margin-left: 20px;
         @include font-size(30px);
         color: white;
@@ -311,18 +314,18 @@ a.nav-link {
 }
 
 .small-padding {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .medium-padding {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .large-padding {
-    padding-top: 159px;
-    padding-bottom: 159px;
+    padding-top: 70px;
+    padding-bottom: 70px;
 }
 
 .background,
@@ -335,13 +338,15 @@ a.nav-link {
 }
 
 .column-background.col-md-6 {
-    padding-left: 100px;
-    padding-right: 100px;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 [class^="col-"] {
     margin-bottom: 0 !important;
 }
+
+
 
 //
 //  Mobile First Development

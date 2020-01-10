@@ -1,7 +1,46 @@
 // Applies from 768px onwards generally starts effecting tablets at this point
 @media (min-width: 768px) {
-    // .container-fluid {
-    //     padding-left: 70px;
-    //     padding-right: 70px;
-    // }
+    header {
+        height: 700px;
+    }
+
+    .small-padding {
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .medium-padding {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .large-padding {
+        padding-top: 159px;
+        padding-bottom: 159px;
+    }
+
+    .column-background.col-md-6 {
+        padding-left: 100px;
+        padding-right: 100px;
+    }
+
+
+    .bar-header {
+        margin-bottom: 30px;
+        position: sticky;
+        top: 0;
+        z-index: 3;
+
+        .phone {
+            top: 20px;
+        }
+
+        .hamburger {
+            top: 25px;
+        }
+    }
+
+    .contact-container {
+        display: block;
+    }
 }
