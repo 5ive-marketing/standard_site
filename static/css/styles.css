@@ -602,7 +602,7 @@ footer a:hover {
 
 header {
   display: block;
-  height: 480px;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -876,10 +876,6 @@ a.nav-link:hover {
 }
 
 @media (min-width: 768px) {
-  header {
-    height: 700px;
-  }
-
   .small-padding {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -914,6 +910,11 @@ a.nav-link:hover {
   }
 
   .contact-container {
+    display: block;
+  }
+
+  [class^=col]:nth-of-type(even),
+[class^=col]:nth-of-type(odd) {
     display: block;
   }
 }

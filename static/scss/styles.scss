@@ -37,7 +37,7 @@
 
 header {
     display: block;
-    height: 480px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,6 +45,7 @@ header {
     top: 0;
     z-index: 10;
     width: 100%;
+
 
     .hamburger.is-active {
         display: inline-block;
@@ -345,8 +346,6 @@ a.nav-link {
 [class^="col-"] {
     margin-bottom: 0 !important;
 }
-
-
 
 //
 //  Mobile First Development
