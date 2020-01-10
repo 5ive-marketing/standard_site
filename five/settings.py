@@ -24,7 +24,7 @@ DEBUG = False
 ALLOWED_HOSTS = [
     'localhost:8000',
     'localhost',
-    u'Caecus.pythonanywhere.com'
+    u'5iveMarketing.pythonanywhere.com'
 ]
 
 INTERNAL_IPS = (
@@ -176,10 +176,10 @@ if DEBUG:
     MEDIA_ROOT = '../five/media/'
 
 else:
-    MEDIA_ROOT = u'/home/Caecus/five/media'
+    MEDIA_ROOT = u'/home/5iveMarketing/five/media'
 
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/Caecus/five/static'
+STATIC_ROOT = u'/home/5iveMarketing/five/static'
 STATIC_URL = '/static/'
 
 
@@ -188,4 +188,4 @@ WAGTAIL_SITE_NAME = "five"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://caecus.pythonanywhere.com/'
+BASE_URL = 'http://5iveMarketing.pythonanywhere.com/'
