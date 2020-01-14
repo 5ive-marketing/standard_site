@@ -1,9 +1,12 @@
 {% load wagtailcore_tags wagtailimages_tags%}
 
-{% image value.background original as background %}
+{% image value.background original format-webp as webp-background %}
+{% image value.background original format-png as png-background %}
 
 <div class="col-md-{{value.width}} {% if self.background %}column-background{% endif %} {% if self.padding == 'small' %}small-padding {% elif self.padding == 'medium' %} medium-padding {% elif self.padding == 'large' %} large-padding {% endif %}"
-    {% if self.background %} style="background-image: url('{{ background.url }}')" {% endif %}>
+    {% if self.background %}
+    style="background-image: url('png-background.url'); background-image: url('{{ webp-background.url }}');"
+    {% endif %}>
     {% for block in value.content %}
     {% include_block block %}
     {% endfor %}
