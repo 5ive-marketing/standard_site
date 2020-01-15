@@ -53,4 +53,8 @@ if settings.DEBUG:
 
 urlpatterns += [
     url(r'', include(wagtail_urls)),
+    # Here we add our Twilio URLs
+    # url(r'^sms/$', 'phone.views.sms'),
+    # url(r'^ring/$', 'phone.views.ring'),
+    url(r'^phone/', include('phone.urls')),
 ]

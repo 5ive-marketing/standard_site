@@ -22,17 +22,8 @@ DEBUG = False
 
 
 ALLOWED_HOSTS = [
-    'localhost:8000',
-    'localhost',
-    u'5iveMarketing.pythonanywhere.com'
+    'www.5ivemarketing.com'
 ]
-
-INTERNAL_IPS = (
-    "127.0.0.1",
-    "172.17.0.1",
-    'localhost:8000',
-    'localhost',
-)
 
 # Application definition
 
@@ -40,14 +31,15 @@ INSTALLED_APPS = [
     # Custom Modules
     'base',
     'search',
+    'phone',
 
     # Installed Plugins
     'wagtail_react_streamfield',
     'wagtailfontawesome',
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
-    'colorful',
     'debug_toolbar',
+
 
     # Wagtail Defaults
     'wagtail.contrib.forms',
@@ -171,15 +163,18 @@ STATICFILES_FINDERS = [
 # see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
 if DEBUG:
     STATICFILES_DIRS = [
-        os.path.join(PROJECT_DIR, "static"),
+        os.path.join(PROJECT_DIR, 'static'),
     ]
     MEDIA_ROOT = '../five/media/'
+    STATIC_ROOT = '/home/groshong/git/five/static/'
+    ALLOWED_HOSTS = ['*']
+    SECRET_KEY = "Development"
 
 else:
     MEDIA_ROOT = u'/home/5iveMarketing/five/media'
+    STATIC_ROOT = u'/home/5iveMarketing/five/static'
 
 MEDIA_URL = '/media/'
-STATIC_ROOT = u'/home/5iveMarketing/five/static'
 STATIC_URL = '/static/'
 
 
@@ -188,4 +183,4 @@ WAGTAIL_SITE_NAME = "five"
 
 # Base URL to use when referring to full URLs within the Wagtail admin backend -
 # e.g. in notification emails. Don't include '/admin' or a trailing slash
-BASE_URL = 'http://5iveMarketing.pythonanywhere.com/'
+BASE_URL = 'https://www.5iveMarketing.com/'
