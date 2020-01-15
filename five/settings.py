@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+from dotenv import load_dotenv
+from os.path import join, dirname
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -22,11 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEBUG = False
 
 # Set load dotenv from local machine
-if DEBUG:
-    from dotenv import load_dotenv
-    from os.path import join, dirname
-    dotenv_path = join(PROJECT_DIR, '.env')
-    load_dotenv(dotenv_path)
+
+dotenv_path = join(PROJECT_DIR, '.env')
+load_dotenv(dotenv_path)
 
 
 # Get API Keys / Secrets
