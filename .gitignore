@@ -1,2 +1,3 @@
-# ignore settings file
-five/settings.py
+.env
+five/wsgi.py
+db.sqlite3

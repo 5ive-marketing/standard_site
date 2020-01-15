@@ -17,9 +17,22 @@ PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+# Set load dotenv from local machine
+if DEBUG:
+    from dotenv import load_dotenv
+    from os.path import join, dirname
+    dotenv_path = join(PROJECT_DIR, '.env')
+    load_dotenv(dotenv_path)
+
+
+# Get API Keys / Secrets
+SECRET_KEY = os.getenv("SECRET_KEY")
+TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
+TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 
 ALLOWED_HOSTS = [
     'www.5ivemarketing.com'
@@ -160,24 +173,26 @@ STATICFILES_FINDERS = [
 ]
 
 
-# default static files settings for PythonAnywhere.
-# see https://help.pythonanywhere.com/pages/DjangoStaticFiles for more info
+# Fix static files for local development
 if DEBUG:
     STATICFILES_DIRS = [
         os.path.join(PROJECT_DIR, 'static'),
     ]
-    MEDIA_ROOT = '../five/media/'
-    STATIC_ROOT = '/home/groshong/git/five/static/'
     ALLOWED_HOSTS = ['*']
-    SECRET_KEY = "Development"
 
-else:
-    MEDIA_ROOT = u'/home/5iveMarketing/five/media'
-    STATIC_ROOT = u'/home/5iveMarketing/five/static'
+MEDIA_ROOT = os.getenv("MEDIA_ROOT")
+STATIC_ROOT = os.getenv("STATIC_ROOT")
+
 
 MEDIA_URL = '/media/'
 STATIC_URL = '/static/'
 
+
+# Production Checklist Settings
+SECURE_CONTENT_TYPE_NOSNIFF = True
+SECURE_BROWSER_XSS_FILTER = True
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
 
 # Wagtail settings
 WAGTAIL_SITE_NAME = "five"
