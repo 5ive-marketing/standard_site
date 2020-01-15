@@ -6,6 +6,8 @@ from wagtail.core.blocks import (
 
 from wagtail.snippets.blocks import SnippetChooserBlock
 
+from colorful.fields import RGBColorField
+
 from django.db import models
 
 
@@ -178,6 +180,9 @@ class RowBlock(StructBlock):
         required=False,
         help_text="This will set the background image of the row.",
         group="Container"
+    )
+    color = RGBColorField(
+        colors=['#231F20', '#3A506B', '#77C7C6', '#B71219', '#4D9B59']
     )
 
     padding = ChoiceBlock(

@@ -1,5 +1,7 @@
 {% load wagtailcore_tags wagtailimages_tags%}
 
+{% image value.background original as background %}
+
 {# itterate through each column block #}
 {% for block in value.content %}
 {% include_block block %}
