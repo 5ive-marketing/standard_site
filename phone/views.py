@@ -1,63 +1,55 @@
-from django.http import HttpResponse
-from django.views.decorators.csrf import csrf_exempt
-from twilio.twiml.messaging_response import MessagingResponse
-
-from five import settings
-from twilio.rest import Client
-
-from twilio.twiml.voice_response import Dial, VoiceResponse, Say
+from twilio.twiml.voice_response import VoiceResponse
+from django_twilio.decorators import twilio_view
 
 
-def voice():
-    """Respond to incoming phone calls with a menu of options"""
-    # Start our TwiML response
-    resp = twiml.Response()
+@twilio_view
+def voice(request):
+    r = VoiceResponse()
 
-    # Start our <Gather> verb
-    with resp.gather(numDigits=1, action='/gather') as gather:
+    with r.gather(numDigits=1, action='choice') as gather:
         gather.play('http://5ivemarketing.com/static/phone/audio/Memo.mp3')
 
-    # If the user doesn't select an option, redirect them into a loop
-    resp.redirect('/voice')
+    return r
 
 
-def gather():
+@twilio_view
+def choices(request):
     """Processes results from the <Gather> prompt in /voice"""
     # Start our TwiML response
-    resp = twiml.Response()
+    r = VoiceResponse()
 
     # If Twilio's request to our app included already gathered digits,
     # process them
-    if 'Digits' in request.values:
+    if request.POST.get('Digits'):
         # Get which digit the caller chose
-        choice = request.values['Digits']
+        choice = request.POST.get('Digits')
+
         if choice == '1':
-            response.say(
-                'Voicemail is currently unavailible, redirecting you to Mike Peterson')
-            response.dial('+15033839340')
-            responce.hangup()
+            r.say(
+                'Voicemail is currently unavailable, redirecting you to Mike Peterson')
+            r.dial('+15033839340')
+            r.hangup()
 
         # michael clark
-        if choice == '2':
-            response.dial('+15036832405')
-            response.say(
+        elif choice == '2':
+            r.dial('+15036832405')
+            r.say(
                 'The call failed or the remote party hung up. Goodbye.')
-            responce.hangup()
+            r.hangup()
         # mike peterson
         elif choice == '3':
-            response.dial('+15033839340')
-            response.say(
+            r.dial('+15033839340')
+            r.say(
                 'The call failed or the remote party hung up. Goodbye.')
-            responce.hangup()
+            r.hangup()
         # events
         elif choice == '4':
-            response.say(
+            r.say(
                 'We don\'t currently have any events scheduled. Please check back again soon.')
-            responce.hangup()
+            r.hangup()
 
         else:
             # If the caller didn't choose 1 or 2, apologize and ask them again
-            resp.say("Sorry, I don't understand that choice.")
+            r.say("Sorry, I don't understand that choice.")
 
-    # If the user didn't choose 1 or 2 (or anything), send them back to /voice
-    resp.redirect('/voice')
+    return r

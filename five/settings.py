@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
     'debug_toolbar',
+    'django_twilio',
 
 
     # Wagtail Defaults
