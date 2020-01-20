@@ -1,6 +1,8 @@
 from django.db import models
 
+from wagtailmetadata.models import MetadataPageMixin
 from wagtail.core.models import Page
+
 from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField, StreamField
@@ -56,7 +58,7 @@ class RawHtml(models.Model):
         return self.title
 
 
-class HomePage(Page):
+class HomePage(MetadataPageMixin, Page):
     """
     Custom Homepage
     """
@@ -82,7 +84,7 @@ def get_context(self, request, *args, **kwargs):
     return context
 
 
-class StandardPage(Page):
+class StandardPage(MetadataPageMixin, Page):
     """
     A generic content page. On this demo site we use it for an about page but
     it could be used for any type of page content that only needs a title,
@@ -110,7 +112,7 @@ class StandardPage(Page):
     ]
 
 
-class ContactPage(Page):
+class ContactPage(MetadataPageMixin, Page):
     """
     Custom Contact page
     """
