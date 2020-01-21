@@ -1,5 +1,6 @@
 from twilio.twiml.voice_response import VoiceResponse
 from django_twilio.decorators import twilio_view
+from django.core.mail import send_mail
 
 
 @twilio_view
@@ -26,8 +27,8 @@ def choices(request):
 
         if choice == '1':
             r.say(
-                'Voicemail is currently unavailable, redirecting you to Mike Peterson')
-            r.dial('+15033839340')
+                'Please leave a message after the tone.')
+            r.record(timeout=20, playBeep=True)
             r.hangup()
 
         # michael clark
@@ -51,5 +52,25 @@ def choices(request):
         else:
             # If the caller didn't choose 1 or 2, apologize and ask them again
             r.say("Sorry, I don't understand that choice.")
+
+    return r
+
+
+@twilio_view
+def mail(request):
+
+    r = VoiceResponse()
+
+    from_ = request.POST.get('request.POST.get('')')
+    url = request.POST.get('RecordingUrl') + '.mp3'
+
+    subject = 'New message from ' + from_
+    message = 'New voice mail from: ' + from_
+    message += ' play the message by clicking on the following URL: ' + url
+    from_email = 'info@5ivemarketing.com'
+    recipient_list = ['dominic.groshong@5ivemarketing.com']
+
+    send_mail(subject, message, from_email,
+              recipient_list, fail_silently=False)
 
     return r
