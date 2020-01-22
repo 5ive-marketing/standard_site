@@ -1,9 +1,136 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,600&display=swap");
-@import url("https://use.typekit.net/esd1dfo.css");
 /*=======================
        Imports
 ========================*/
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-Medium.eot");
+  src: local("Factoria Medium"), local("Factoria-Medium"), url("../fonts/Factoria-Medium.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Medium.woff") format("woff"), url("../fonts/Factoria-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-BoldItalic.eot");
+  src: local("Factoria Bold Italic"), local("Factoria-BoldItalic"), url("../fonts/Factoria-BoldItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-BoldItalic.woff") format("woff"), url("../fonts/Factoria-BoldItalic.ttf") format("truetype");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria Demi";
+  src: url("Factoria-Demi.eot");
+  src: local("Factoria Demi"), local("Factoria-Demi"), url("../fonts/Factoria-Demi.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Demi.woff") format("woff"), url("../fonts/Factoria-Demi.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-BlackItalic.eot");
+  src: local("Factoria Black Italic"), local("Factoria-BlackItalic"), url("../fonts/Factoria-BlackItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-BlackItalic.woff") format("woff"), url("../fonts/Factoria-BlackItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria Ultra";
+  src: url("Factoria-UltraItalic.eot");
+  src: local("Factoria Ultra Italic"), local("Factoria-UltraItalic"), url("../fonts/Factoria-UltraItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-UltraItalic.woff") format("woff"), url("../fonts/Factoria-UltraItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-Black.eot");
+  src: local("Factoria Black"), local("Factoria-Black"), url("../fonts/Factoria-Black.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Black.woff") format("woff"), url("../fonts/Factoria-Black.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria Book";
+  src: url("Factoria-BookItalic.eot");
+  src: local("Factoria Book Italic"), local("Factoria-BookItalic"), url("../fonts/Factoria-BookItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-BookItalic.woff") format("woff"), url("../fonts/Factoria-BookItalic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-Thin.eot");
+  src: local("Factoria Thin"), local("Factoria-Thin"), url("../fonts/Factoria-Thin.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Thin.woff") format("woff"), url("../fonts/Factoria-Thin.ttf") format("truetype");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria Demi";
+  src: url("Factoria-DemiItalic.eot");
+  src: local("Factoria Demi Italic"), local("Factoria-DemiItalic"), url("../fonts/Factoria-DemiItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-DemiItalic.woff") format("woff"), url("../fonts/Factoria-DemiItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-Bold.eot");
+  src: local("Factoria Bold"), local("Factoria-Bold"), url("../fonts/Factoria-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Bold.woff") format("woff"), url("../fonts/Factoria-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-ThinItalic.eot");
+  src: local("Factoria Thin Italic"), local("Factoria-ThinItalic"), url("../fonts/Factoria-ThinItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-ThinItalic.woff") format("woff"), url("../fonts/Factoria-ThinItalic.ttf") format("truetype");
+  font-weight: 100;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria Book";
+  src: url("Factoria-Book.eot");
+  src: local("Factoria Book"), local("Factoria-Book"), url("../fonts/Factoria-Book.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Book.woff") format("woff"), url("../fonts/Factoria-Book.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-LightItalic.eot");
+  src: local("Factoria Light Italic"), local("Factoria-LightItalic"), url("../fonts/Factoria-LightItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-LightItalic.woff") format("woff"), url("../fonts/Factoria-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-Light.eot");
+  src: local("Factoria Light"), local("Factoria-Light"), url("../fonts/Factoria-Light.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Light.woff") format("woff"), url("../fonts/Factoria-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria";
+  src: url("Factoria-MediumItalic.eot");
+  src: local("Factoria Medium Italic"), local("Factoria-MediumItalic"), url("../fonts/Factoria-MediumItalic.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-MediumItalic.woff") format("woff"), url("../fonts/Factoria-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Factoria Ultra";
+  src: url("Factoria-Ultra.eot");
+  src: local("Factoria Ultra"), local("Factoria-Ultra"), url("../fonts/Factoria-Ultra.eot?#iefix") format("embedded-opentype"), url("../fonts/Factoria-Ultra.woff") format("woff"), url("../fonts/Factoria-Ultra.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
 *,
 *:after,
 *:before {
@@ -31,7 +158,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "factoria", serif;
+  font-family: "Factoria", serif;
   font-weight: 300;
   margin: 0;
   line-height: normal;
@@ -234,7 +361,7 @@ blockquote.long:before {
   font-size: 100px;
   font-size: 6.25rem;
   font-weight: 900;
-  font-family: "factoria", serif;
+  font-family: "Factoria", serif;
   color: #c4c4c4;
   top: 0;
   left: 50%;
@@ -621,6 +748,7 @@ header .hamburger.is-active {
   text-align: right;
   width: 100%;
   background: url("/static/img/cartographer.png");
+  background: url("/media/images/cartographer.original.format-webp.webp");
   height: 100%;
   position: relative;
   display: none;
@@ -780,6 +908,13 @@ a.nav-link:hover {
 
 .template-home-page .bar-header {
   display: none;
+}
+.template-home-page img[alt="logo.png"] {
+  max-width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .template-home-page .column-background:nth-of-type(2) hr {
   border-color: white;
