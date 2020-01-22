@@ -121,6 +121,13 @@ TEMPLATES = [
     },
 ]
 
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/home/Caecus/.cache/wagtail',
+    }
+}
+
 
 WSGI_APPLICATION = 'five.wsgi.application'
 
