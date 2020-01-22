@@ -909,6 +909,13 @@ a.nav-link:hover {
 .template-home-page .bar-header {
   display: none;
 }
+.template-home-page img[alt="logo.png"] {
+  max-width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 .template-home-page .column-background:nth-of-type(2) hr {
   border-color: white;
 }
