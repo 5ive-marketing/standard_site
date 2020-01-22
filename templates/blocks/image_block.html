@@ -1,7 +1,18 @@
 {% load wagtailimages_tags %}
-{% load wagtailcore_tags %}
-<figure {%if self.position%}class="{{ self.position }}" {%endif%}>
-    {% image self.image max-700x500 %}
+<figure>
+    <picture>
+        {% image self.image width-1000 format-webp as image_webp %}
+        <source srcset="{{ image_webp.url }}" type="image/webp">
+
+        {% image self.image width-1000 format-png as image_png %}
+        <source srcset="{{ image_png.url }}" type="image/png">
+
+        {% image self.image width-1000 format-jpeg as image_jpeg %}
+        <source srcset="{{ image_jpeg.url }}" type="image/jpeg">
+
+        {% image self.image width-1000 %}
+    </picture>
+
     {%if self.caption and self.attribution %}<figcaption>{{ self.caption }} {{ self.attribution }}</figcaption>
     {%elif self.caption %}<figcaption>{{ self.caption }}</figcaption>
     {%elif self.attribution %}<figcaption>{{ self.attribution }}</figcaption>
