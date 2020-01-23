@@ -73,7 +73,6 @@ class HomePage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
     )
 
     content_panels = Page.content_panels + [
@@ -122,7 +121,6 @@ class StandardPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
     )
 
     body = StreamField(
@@ -165,7 +163,6 @@ class ContactPage(Page):
         blank=True,
         on_delete=models.SET_NULL,
         related_name='+',
-        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
     )
 
     content_panels = Page.content_panels + [
