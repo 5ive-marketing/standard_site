@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Set load dotenv from local machine
 
@@ -172,8 +172,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-MEDIA_ROOT = os.getenv("MEDIA_ROOT")
-STATIC_ROOT = os.getenv("STATIC_ROOT")
+MEDIA_ROOT = u"home/5iveMarketing/media"
+STATIC_ROOT = u"home/5iveMarketing/media"
 
 
 MEDIA_URL = '/media/'
@@ -199,6 +199,10 @@ if DEBUG:
     STATICFILES_DIRS = [
         os.path.join(PROJECT_DIR, 'static'),
     ]
+
+    MEDIA_ROOT = os.getenv("MEDIA_ROOT")
+    STATIC_ROOT = os.getenv("STATIC_ROOT")
+
     ALLOWED_HOSTS = ['*']
 
     SECURE_CONTENT_TYPE_NOSNIFF = False
