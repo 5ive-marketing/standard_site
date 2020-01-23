@@ -1,4 +1,5 @@
-{% load static %}
+{% load static wagtailimages_tags %}
+{% image self.seo_image width-300 as seo_image %}
 
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
@@ -24,12 +25,33 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
   <title>
     5ive Marketing | {{ page.title }}
   </title>
   <meta name="description" content="{% if self.search_description %}{{ self.search_description }}{% endif %}" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+  <!-- Google / Search Engine Tags -->
+  <meta itemprop="name" content="{% if self.seo_title %}{{ self.seo_title }} {% else %} {{page.title}} {% endif %}">
+  <meta itemprop="description" content="  {% if self.search_description %}{{ self.search_description }}{% endif %} ">
+  <meta itemprop="image" content="{% if self.seo_image %}{{ page.get_site.root_url }}{{ seo_image.url }}{% endif %}">
+
+  <!-- Facebook Meta Tags -->
+  <meta property="og:url" content=" {{ self.url }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title"
+    content=" {% if self.seo_title %}{{ self.seo_title }} {% else %} {{page.title}} {% endif %} ">
+  <meta property="og:description" content=" {% if self.search_description %}{{ self.search_description }}{% endif %} ">
+  <meta property="og:image" content="{% if self.seo_image %}{{ page.get_site.root_url }}{{ seo_image.url }}{% endif %}">
+
+  <!-- Twitter Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title"
+    content=" {% if self.seo_title %}{{ self.seo_title }} {% else %} {{page.title}} {% endif %} ">
+  <meta name="twitter:description" content=" {% if self.search_description %}{{ self.search_description }}{% endif %} ">
+  <meta name="twitter:image"
+    content="{% if self.seo_image %}{{ page.get_site.root_url }}{{ seo_image.url }}{% endif %}">
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"

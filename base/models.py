@@ -2,7 +2,7 @@ from django.db import models
 
 from wagtail.core.models import Page
 
-from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel
+from wagtail.admin.edit_handlers import FieldPanel, StreamFieldPanel, MultiFieldPanel, InlinePanel
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.core.fields import RichTextField, StreamField
 from wagtail.core.blocks import RawHTMLBlock
@@ -67,8 +67,22 @@ class HomePage(Page):
         blocks.BaseStreamBlock(), verbose_name="Page body", blank=True
     )
 
+    seo_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
+    )
+
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
+    ]
+
+    promote_panels = [
+        MultiFieldPanel(Page.promote_panels, "Common page configuration"),
+        ImageChooserPanel('seo_image'),
     ]
 
 
@@ -101,6 +115,16 @@ class StandardPage(Page):
         related_name='+',
         help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
     )
+
+    seo_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
+    )
+
     body = StreamField(
         blocks.BaseStreamBlock(), verbose_name="Page body", blank=True
     )
@@ -108,6 +132,11 @@ class StandardPage(Page):
         FieldPanel('introduction', classname="full"),
         StreamFieldPanel('body'),
         ImageChooserPanel('image'),
+    ]
+
+    promote_panels = [
+        MultiFieldPanel(Page.promote_panels, "Common page configuration"),
+        ImageChooserPanel('seo_image'),
     ]
 
 
@@ -130,7 +159,21 @@ class ContactPage(Page):
         verbose_name="Add Snippet"
     )
 
+    seo_image = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        help_text='Landscape mode only; horizontal width between 1000px and 3000px.'
+    )
+
     content_panels = Page.content_panels + [
         StreamFieldPanel('body'),
         SnippetChooserPanel('rawhtml'),
+    ]
+
+    promote_panels = [
+        MultiFieldPanel(Page.promote_panels, "Common page configuration"),
+        ImageChooserPanel('seo_image'),
     ]
