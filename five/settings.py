@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # Set load dotenv from local machine
 
@@ -34,10 +34,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 
-
-ALLOWED_HOSTS = [
-    'www.5ivemarketing.com'
-]
+ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
 
 # Application definition
 
@@ -206,8 +203,6 @@ if DEBUG:
 
     MEDIA_ROOT = os.getenv("MEDIA_ROOT")
     STATIC_ROOT = os.getenv("STATIC_ROOT")
-
-    ALLOWED_HOSTS = ['*']
 
     SECURE_CONTENT_TYPE_NOSNIFF = False
     SECURE_BROWSER_XSS_FILTER = False
