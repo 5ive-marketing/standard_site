@@ -134,6 +134,16 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': os.getenv("DB_NAME"),
+#         'USER': os.getenv("DB_USER"),
+#         'PASSWORD': os.getenv("DB_PASS"),
+#         'HOST': os.getenv("DB_HOST"),
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -172,8 +182,8 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 ]
 
-MEDIA_ROOT = os.getenv("MEDIA_ROOT")
-STATIC_ROOT = os.getenv("STATIC_ROOT")
+MEDIA_ROOT = STATIC_ROOT = os.path.join(BASE_DIR, "media")
+STATIC_ROOT = STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
 MEDIA_URL = '/media/'
