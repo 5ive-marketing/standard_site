@@ -34,6 +34,9 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 TWILIO_ACCOUNT_SID = os.getenv("TWILIO_ACCOUNT_SID")
 TWILIO_AUTH_TOKEN = os.getenv("TWILIO_AUTH_TOKEN")
 
+RECAPTCHA_PUBLIC_KEY = os.getenv("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = os.getenv("RECAPTCHA_PRIVATE_KEY")
+
 ALLOWED_HOSTS = os.getenv("ALLOWED_HOSTS")
 
 # Application definition
@@ -43,6 +46,7 @@ INSTALLED_APPS = [
     'base',
     'search',
     'phone',
+    'forms',
 
     # Installed Plugins
     'wagtail_react_streamfield',
@@ -51,6 +55,8 @@ INSTALLED_APPS = [
     'wagtailmenus',
     'debug_toolbar',
     'django_twilio',
+    'captcha',
+    'wagtailcaptcha',
 
 
     # Wagtail Defaults
@@ -124,14 +130,10 @@ WSGI_APPLICATION = 'five.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
 
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv("DB_NAME"),
-        'USER': os.getenv("DB_USER"),
-        'PASSWORD': os.getenv("DB_PASS"),
-        'HOST': os.getenv("DB_HOST"),
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
 
@@ -208,10 +210,3 @@ if DEBUG:
     SECURE_BROWSER_XSS_FILTER = False
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
-
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        }
-    }
