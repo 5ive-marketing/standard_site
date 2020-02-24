@@ -328,42 +328,6 @@ img {
   margin-bottom: 0;
 }
 
-
-button,
-.button,
-.btn-primary,
-.btn,
-.btn-info,
-.btn-default {
-  display: inline-block;
-  padding: 12px 35px !important;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  color: white !important;
-  font-family: $bodyCopy;
-  text-transform: uppercase;
-  @include font-size(18px);
-  font-weight: 100;
-  background: $cp3;
-  transition: all 0.5s ease;
-  border: none !important;
-  @include border-radius(0);
-
-  &:hover,
-  &.hover {
-    color: white !important;
-    background: $cp5;
-    @include border-radius($radius);
-  }
-
-  &:active,
-  &.active {
-    color: white !important;
-    background: $cp2;
-    @include border-radius($radius);
-  }
-}
-
 //
 // Lists
 ////// Ordered List (Numbered)
@@ -578,6 +542,184 @@ select.form-control {
   color: pink;
 }
 
+/* -------------- FORMS ---------------- */
+fieldset {
+  border: none;
+}
+
+fieldset ul li {
+  margin: 0 0 10px 0;
+  list-style: none;
+  padding: 0;
+  position: relative;
+  clear: both;
+}
+
+fieldset li label {
+  font-size: 13px;
+  text-align: left;
+  margin: 0 10px 5px 0;
+  line-height: 17px;
+  color: #333;
+}
+
+fieldset li .field_info {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+}
+
+input,
+textarea,
+option {
+  font-size: 13px;
+}
+
+input[type=text],
+input[type=password],
+textarea {
+  border: 1px solid $cp5;
+  padding: 7px 5px;
+  margin: 2px 0;
+  width: 100%;
+  font-size: 13px;
+  transition: background-color .2s;
+  -moz-transition: background-color .2s;
+  /* Firefox 4 */
+  -webkit-transition: background-color .2s;
+  /* Safari and Chrome */
+  -o-transition: background-color .2s;
+  /* Opera */
+  -moz-box-sizing: border-box !important;
+  -webkit-box-sizing: border-box !important;
+  box-sizing: border-box !important;
+}
+
+input:focus,
+textarea:focus {
+  @extend input[type=text];
+  border-color: $cp3;
+}
+
+select {
+  max-width: 300px;
+}
+
+option {
+  padding: 2px;
+  font-size: 14px;
+}
+
+textarea {
+  height: 60px;
+}
+
+/* -------------- Errors ---------------- */
+label.error {
+  clear: both;
+  display: inline-block;
+  background: lighten($cp4, 25%);
+  color: white;
+  box-shadow: 0 1px 1px $cp4;
+  padding: 2px 6px;
+  margin: 10px;
+}
+
+select.error {
+  border: 2px solid $cp4;
+}
+
+#form_errors {
+  clear: both;
+  float: left;
+  background: lighten($cp4, 25%);
+  color: white;
+  box-shadow: 0 1px 1px $cp4;
+  font-size: 12px;
+  padding: 5px 6px;
+  margin: 10px 0;
+}
+
+#form_errors.hide {
+  display: none;
+}
+
+/* Buttons */
+button,
+.button,
+.btn-primary,
+.btn,
+.btn-info,
+.btn-default {
+  display: inline-block;
+  padding: 12px 35px !important;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  color: white !important;
+  font-family: $bodyCopy;
+  text-transform: uppercase;
+  @include font-size(18px);
+  font-weight: 100;
+  background: $cp3;
+  transition: all 0.5s ease;
+  border: none !important;
+  cursor: pointer;
+  @include border-radius(0);
+
+  &:hover,
+  &.hover {
+    color: white !important;
+    background: $cp5;
+    @include border-radius($radius);
+  }
+
+  &:active,
+  &.active {
+    color: white !important;
+    background: $cp2;
+    @include border-radius($radius);
+  }
+}
+
+/* Utils */
+.clear {
+  clear: both;
+}
+
+.pull-right {
+  float: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+body .hide {
+  display: none;
+}
+
+/* reCaptcha */
+.ss-recaptcha .ss-recaptcha-logo {
+  height: 24px;
+  width: 24px;
+  float: left;
+  background: url(https://www.gstatic.com/recaptcha/api2/logo_48.png);
+  background-size: 24px 24px;
+  display: none;
+}
+
+.ss-recaptcha .ss-anchor-invisible-text {
+  font-size: 12px;
+  color: #7F7F7F;
+}
+
+.ss-recaptcha .ss-anchor-pt {
+  font-size: 12px;
+}
+
+.ss-recaptcha .ss-anchor-pt a {
+  color: #7F7F7F;
+}
 
 //
 // Footer

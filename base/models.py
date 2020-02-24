@@ -123,13 +123,23 @@ class StandardPage(Page):
         related_name='+',
     )
 
+    rawhtml = models.ForeignKey(
+        'base.RawHtml',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+',
+        verbose_name="Add Snippet"
+    )
+
     body = StreamField(
         blocks.BaseStreamBlock(), verbose_name="Page body", blank=True
     )
     content_panels = Page.content_panels + [
+        ImageChooserPanel('image'),
         FieldPanel('introduction', classname="full"),
         StreamFieldPanel('body'),
-        ImageChooserPanel('image'),
+        SnippetChooserPanel('rawhtml'),
     ]
 
     promote_panels = [
