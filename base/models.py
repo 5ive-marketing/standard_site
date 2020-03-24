@@ -61,7 +61,7 @@ class HomePage(Page):
     """
     Custom Homepage
     """
-    is_creatable = False
+    is_creatable = True
 
     body = StreamField(
         blocks.BaseStreamBlock(), verbose_name="Page body", blank=True

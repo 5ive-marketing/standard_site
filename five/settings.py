@@ -21,7 +21,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # Set load dotenv from local machine
 
@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'forms',
 
     # Installed Plugins
-    'wagtail_react_streamfield',
+    # 'wagtail_react_streamfield',
     'wagtailfontawesome',
     'wagtail.contrib.modeladmin',
     'wagtailmenus',
@@ -124,7 +124,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'five.wsgi.application'
+# WSGI_APPLICATION = 'five.wsgi.application'
 
 
 # Database

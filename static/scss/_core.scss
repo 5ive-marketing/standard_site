@@ -87,8 +87,6 @@ h6 {
   font-weight: 100;
 }
 
-
-
 .background {
   background-size: cover;
 }
@@ -113,7 +111,6 @@ hr {
   max-width: 200px;
   display: block;
 }
-
 
 //
 // Color Palette
@@ -270,10 +267,8 @@ blockquote.long {
 
     &:before {
       content: "\2014"+ " ";
-
     }
   }
-
 }
 
 blockquote.short {
@@ -300,17 +295,14 @@ blockquote.short {
 
     &:before {
       content: "\2014"+ " ";
-
     }
   }
-
 }
 
 img {
   max-width: 100%;
   height: auto;
 }
-
 
 .hidden {
   display: none;
@@ -339,7 +331,7 @@ main ol {
   counter-reset: li-counter;
 }
 
-main ol>li {
+main ol > li {
   position: relative;
   margin-bottom: 0;
   padding: 5px 20px 5px 65px;
@@ -351,7 +343,7 @@ main ol>li {
   }
 }
 
-main ol>li:before {
+main ol > li:before {
   position: absolute;
   color: white;
   top: 0;
@@ -460,17 +452,17 @@ main ul {
     font-weight: bold;
   }
 
-  .table>thead>tr>th,
-  .table>tbody>tr>th,
-  .table>tfoot>tr>th,
-  .table>thead>tr>td,
-  .table>tbody>tr>td,
-  .table>tfoot>tr>td {
+  .table > thead > tr > th,
+  .table > tbody > tr > th,
+  .table > tfoot > tr > th,
+  .table > thead > tr > td,
+  .table > tbody > tr > td,
+  .table > tfoot > tr > td {
     border: none;
   }
 }
 
-.table-responsive>.table {
+.table-responsive > .table {
   margin-bottom: 20px !important;
   border: none;
 }
@@ -530,7 +522,6 @@ select.form-control {
   -webkit-appearance: none;
   -moz-appearance: none;
   border-radius: 0;
-
 }
 
 ::-webkit-input-placeholder,
@@ -575,20 +566,20 @@ option {
   font-size: 13px;
 }
 
-input[type=text],
-input[type=password],
+input[type="text"],
+input[type="password"],
 textarea {
   border: 1px solid $cp5;
   padding: 7px 5px;
   margin: 2px 0;
   width: 100%;
   font-size: 13px;
-  transition: background-color .2s;
-  -moz-transition: background-color .2s;
+  transition: background-color 0.2s;
+  -moz-transition: background-color 0.2s;
   /* Firefox 4 */
-  -webkit-transition: background-color .2s;
+  -webkit-transition: background-color 0.2s;
   /* Safari and Chrome */
-  -o-transition: background-color .2s;
+  -o-transition: background-color 0.2s;
   /* Opera */
   -moz-box-sizing: border-box !important;
   -webkit-box-sizing: border-box !important;
@@ -597,7 +588,7 @@ textarea {
 
 input:focus,
 textarea:focus {
-  @extend input[type=text];
+  // @extend input[type=text];
   border-color: $cp3;
 }
 
@@ -710,7 +701,7 @@ body .hide {
 
 .ss-recaptcha .ss-anchor-invisible-text {
   font-size: 12px;
-  color: #7F7F7F;
+  color: #7f7f7f;
 }
 
 .ss-recaptcha .ss-anchor-pt {
@@ -718,7 +709,7 @@ body .hide {
 }
 
 .ss-recaptcha .ss-anchor-pt a {
-  color: #7F7F7F;
+  color: #7f7f7f;
 }
 
 //

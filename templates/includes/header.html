@@ -2,51 +2,6 @@
 
 {% load static %}
 
-<header class="hidden">
-    <aside class="col-md-6 contact-container">
-        <div class="info">
-            <h1>need a map?</h1>
-            <h2>we can be found @</h2>
-            <a href="https://g.page/5ivemarketing?share" target="_blank" itemprop="address">
-                3739 Cherry Ave NE,<br /> Keizer, OR 97303
-            </a>
-            <a href="tel:5039674065" target="_blank" itemprop="telephone">503.967.4065</a>
-            <a href="mailto:info@5ivemarketing.com">info@5ivemarketing.com</a>
-            <ul class="social-media">
-                <li><a class="fa-facebook-official" href="https://www.facebook.com/5ivemarketing/"
-                        target="_blank">Facebook</a></li>
-                <li><a class="fa-twitter-square" href="https://twitter.com/5iveMarketing" target="_blank">Twitter</a>
-                </li>
-                <li><a class="fa-instagram" href="https://www.instagram.com/5ivemarketing/"
-                        target="_blank">Instagram</a>
-                </li>
-            </ul>
-            <hr>
-            <a href="/" class="logo-bug"><img src="{% static 'img/logo_bug.png' %}" alt="5ive Marketing"></a>
-        </div>
-    </aside>
-    <aside class="col-md-6 menu-container">
-        {% main_menu template="menu/main_menu.html" sub_menu_template="menu/sub_menu.html"%}
-    </aside>
-    <button class="hamburger hamburger--boring" type="button">
-        <span class="hamburger-box">
-            <span class="hamburger-inner"></span>
-        </span>
-    </button>
+<header>
+    {% main_menu template="menu/main_menu.html" sub_menu_template="menu/sub_menu.html"%}
 </header>
-
-<section class="row bar-header">
-    <aside class="col-md-6 contact-container bar">
-        <div class="info">
-            <a href="/" class="logo-bug"><img src="{% static 'img/logo_bug.png' %}" alt="5ive Marketing"></a>
-        </div>
-    </aside>
-    <aside class="col-md-6 menu-container bar">
-        <a class="phone" href="tel:5039674065" target="_blank" itemprop="telephone">503.967.4065</a>
-        <button class="hamburger hamburger--boring" type="button">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-    </aside>
-</section class="row">
