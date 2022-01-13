@@ -18,7 +18,7 @@ html5lib==1.0.1
 idna==2.9
 l18n==2018.5
 phonenumbers==8.12.0
-Pillow==6.2.2
+Pillow==9.0.0
 PyJWT==1.7.1
 python-dotenv==0.12.0
 pytz==2019.3
